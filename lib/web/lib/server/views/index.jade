@@ -1,0 +1,52 @@
+doctype html
+html(lang='en')
+  head
+
+    meta(
+      charset='UTF-8'
+    )
+    meta(
+      http-equiv='X-UA-Compatible'
+      content='IE=edge, chrome=1'
+    )
+    meta(
+      name='viewport'
+      content='initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width'
+    )
+    meta(
+      name='description'
+      content=''
+    )
+
+    title Demo
+
+    block head
+
+    style.
+      body{
+        text-align: center;
+      }
+      input{
+        outline: none;
+        padding: 10px;
+      }
+      body, input{
+        font-size: 20px;
+      }
+      ul{
+        list-style: none;
+      }
+
+  body
+
+    form(action='', method='post')
+      input(name='database', placeholder='ENTER DATABASE NAME')
+      button(type='submit', hidden)
+
+    br
+    br
+
+    if tables
+      ul
+        for table in tables
+          li #{table}
