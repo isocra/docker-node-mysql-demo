@@ -7,7 +7,7 @@ Demo of how to setup a nodejs app and mysql db services using docker+fig.
 - Clone project and cd into it
 - Install [docker](http://docker.io)
 - Install [fig](http://fig.sh)
-- Copy yur sql dump to `lib/db/dump.sql` path.
+- Copy your sql dump to `lib/db/dump.sql` path.
 - If using boot2docker, sync guest clock with:
 
 ```
