@@ -87,19 +87,19 @@ if [[ ! -d $VOLUME_HOME/mysql ]]; then
     echo "=> Done!"  
     echo "=> Creating admin user ..."
     CreateMySQLUser
+
+    # Import Startup SQL
+    if [ -n "${STARTUP_SQL}" ]; then
+        if [ ! -f /sql_imported ]; then
+            echo "=> Initializing DB with ${STARTUP_SQL}"
+            ImportSql
+            touch /sql_imported
+        fi
+    fi
+
 else
     echo "=> Using an existing volume of MySQL"
 fi
-
-# Import Startup SQL
-if [ -n "${STARTUP_SQL}" ]; then
-    if [ ! -f /sql_imported ]; then
-        echo "=> Initializing DB with ${STARTUP_SQL}"
-        ImportSql
-        touch /sql_imported
-    fi
-fi
-
 
 # Set MySQL REPLICATION - MASTER
 if [ -n "${REPLICATION_MASTER}" ]; then 
