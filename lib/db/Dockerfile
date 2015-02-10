@@ -36,5 +36,7 @@ ENV REPLICATION_SLAVE **False**
 ENV REPLICATION_USER replica
 ENV REPLICATION_PASS replica
 
+VOLUME  ["/etc/mysql", "/var/lib/mysql"]
+
 EXPOSE 3306
 CMD ["/run.sh"]
